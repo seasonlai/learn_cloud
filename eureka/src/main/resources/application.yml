@@ -1,6 +1,8 @@
 spring:
   application:
     name: discovery-eureka-ha
+  profiles:
+    active: peer1
 security:
   basic:
     enabled: true
@@ -15,7 +17,7 @@ server:
 eureka:
   client:
     service-url:
-      #将自己注册到peer2
+      #灏嗚嚜宸辨敞鍐屽埌peer2
       defaultZone: http://localhost:8762/eureka/
   instance:
     hostname: peer1
@@ -29,5 +31,5 @@ eureka:
     hostname: peer2
   client:
     service-url:
-      #将自己注册到peer1
+      #灏嗚嚜宸辨敞鍐屽埌peer1
       defaultZone: http://localhost:8761/eureka/

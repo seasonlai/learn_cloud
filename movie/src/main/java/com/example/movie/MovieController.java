@@ -24,16 +24,21 @@ public class MovieController {
     RestTemplate restTemplate;
 
     @Autowired
-    DiscoveryClient discoveryClient;
+    DiscoveryClient discoveryClient;//微服务客户端
 
     @Autowired
-    LoadBalancerClient loadBalancerClient;
+    LoadBalancerClient loadBalancerClient;//有负载均衡功能的
 
-    static Logger LOGGER = LoggerFactory.getLogger(MovieController.class);
+    @Autowired
+    UserFeignClient userFeignClient;
+
+
+   static Logger LOGGER = LoggerFactory.getLogger(MovieController.class);
 
     @GetMapping("/user/{id}")
     public User findById(@PathVariable("id")Long id){
-        return restTemplate.getForObject("http://localhost:8000/"+id,User.class);
+//        return restTemplate.getForObject("http://provider-user/"+id,User.class);
+        return userFeignClient.findById(id);
     }
 
     @GetMapping("/user-instance")

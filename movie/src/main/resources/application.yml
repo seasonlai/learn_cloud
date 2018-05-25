@@ -8,8 +8,8 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://user:password123@localhost:8761/eureka/
-#×Ô¶¨Òå¸ºÔØ¾ùºâ²ßÂÔ
+      defaultZone: http://user:password123@peer1:8761/eureka/,http://user:password123@peer2:8762/eureka/
+#è‡ªå®šä¹‰è´Ÿè½½å‡è¡¡ç­–ç•¥
 provider-user:
   ribbon:
-    NFLoadBalancerRuleClassName: com.neflix.loadbalancer.RandomRule
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
