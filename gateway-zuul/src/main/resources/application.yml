@@ -1,0 +1,10 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: gateway-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:password123@peer1:8761/eureka/
